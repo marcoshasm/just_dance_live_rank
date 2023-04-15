@@ -1,0 +1,131 @@
+:root {
+  --pink: #e9009c;
+  --light-pink: #fde5f5;
+  --blue: #1169fc;
+  --light-blue: #def1f8;
+  --green: #19e7c9;
+  --gray: #847c94;
+  --light-gray: #d2cfe0;
+  --white: #ffffff;
+}
+
+.tbd {
+  --blue: #0e1014;
+  --white: #8bc0e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #100665;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e8e6e9;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #847c94;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #594e70;
+}
+
+.rank-table-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 686px;
+  height: 686px;
+  border: 3px solid var(--pink);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rank-table {
+  flex-wrap: wrap;
+  width: 686px;
+  height: 686px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.rank-item {
+  position: absolute;
+  width: 674px;
+  height: 62px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: var(--white);
+  font-family: 'Tungsten';
+  font-size: 60px;
+  line-height: 62px;
+  padding: 0 16px;
+  transition: all .3s ease;
+  animation: slide-in .4s ease;
+}
+
+.rank-rank {
+  position: absolute;
+  left: 16px;
+}
+
+.rank-name {
+  position: absolute;
+  left: 78px;
+}
+
+.rank-song-name {
+  font-size: 30px;
+  position: absolute;
+  top: 6px;
+  right: 216px;
+  line-height: 30px;
+}
+
+.rank-song-artist {
+  font-size: 25px;
+  position: absolute;
+  top: 34px;
+  right: 216px;
+  line-height: 25px;
+}
+
+.rank-icon {
+  width: 58px;
+  height: 58px;
+  position: absolute;
+  top: 2px;
+  right: 146px;
+}
+
+.rank-score {
+  position: absolute;
+  left: 544px;
+}
+
+@keyframes slide-in {
+  0%   {right: 100%;}
+  50%  {right: 100%;}
+  85%  {right: -10%;}
+  100% {right: 0%;}
+}
+
+#add {
+  position: absolute;
+}

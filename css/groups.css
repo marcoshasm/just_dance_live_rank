@@ -1,0 +1,88 @@
+:root {
+  --pink: #e9009c;
+  --light-pink: #fde5f5;
+  --blue: #1169fc;
+  --light-blue: #def1f8;
+  --green: #19e7c9;
+  --gray: #847c94;
+  --light-gray: #d2cfe0;
+  --white: #ffffff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Tungsten';
+}
+
+body {
+  background-color: #100b49;
+}
+
+.groups-wrap {
+  display: flex;
+  width: 1280px;
+  height: 720px;
+  flex-wrap: wrap;
+}
+
+.group {
+  width: 320px;
+  height: 240px;
+  padding: 5px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.group-header {
+  height: 47px;
+  width: 310px;
+  font-size: 40px;
+  line-height: 40px;
+  padding: 0 0 0 5px;
+}
+
+.group-item-wrap {
+  overflow: hidden;
+  position: relative;
+  height: 183px;
+}
+
+.group-item {
+  position: absolute;
+  height: 42px;
+  width: 310px;
+  top: 0;
+  margin: 0 0 5px 0;
+  background-color: var(--blue);
+  border-radius: 4px;
+  font-size: 36px;
+  transition: all .3s ease;
+  animation: slide-in .4s ease;
+}
+
+.group-item-first {
+  background-color: var(--pink);
+}
+
+.group-item-rank {
+  margin: 0 5px 0 5px;
+  line-height: 42px;
+}
+
+.group-item-name {
+  line-height: 42px;
+}
+
+.group-item-score {
+  position: absolute;
+  right: 5px;
+  line-height: 42px;
+}
+
+@keyframes slide-in {
+  0%   {right: 150%;}
+  50%  {right: 150%;}
+  85%  {right: -10%;}
+  100% {right: 0%;}
+}

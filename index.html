@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="ranking.css">
+    <title>General Ranking</title>
+    <script defer src="ranking.js"></script>
+  </head>
+  <body>
+    <button id="add">add</button>
+    <div class="rank-table-wrap">
+      <div id="table" class="rank-table">
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
+  </body>
+</html>

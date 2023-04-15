@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #100b49;
+}
+
+.brackets {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+
+.center {
+  justify-content: center;
+  gap: 80px;
+}
+
+.item {
+  height: 60px;
+  background-color: dodgerblue;
+}

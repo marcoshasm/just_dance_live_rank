@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="score.css">
+    <title>Groups Ranking</title>
+  </head>
+  <body>
+    <form>
+      <select name="competidor" id="competidor" class="competidor-form">
+      </select>
+      <input id="score" type="number" name="score" value="13333">
+      <button type="button" onclick="newScore()">REGISTRAR</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      const select = document.getElementById("competidor");
+      const score = document.getElementById("score");
+      var group = [];
+
+      socket.emit('load scores');
+
+      socket.on('load scores', (res) => {
+        res.forEach (element => {
+          let option = document.createElement("option");
+          option.value = element.id;
+          option.innerHTML = element.nome;
+          group.push(element.group_id);
+          select.appendChild(option);
+        });
+      });
+
+      function newScore ()
+      {
+        var obj = {
+          id: select.value,
+          group: group[select.value - 1],
+          score: parseInt(score.value)
+        }
+        socket.emit('new score', obj);
+      }
+    </script>
+  </body>
+</html>
