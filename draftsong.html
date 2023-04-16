@@ -7,10 +7,17 @@
     <body>
         <div class="main">
             <img class="cover" src="" id="cover">
-            <h1 id="title">Sorteando Música...</h1>
-            <h2 id="artist">...</h2>
+            <h1 id="title">Song Title</h1>
+            <h2 id="artist">Song Artist</h2>
         </div>
 
         <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+
+            function draft (extreme) {
+                socket.emit('draft song', extreme);
+            }
+        </script>
     </body>
 </html>

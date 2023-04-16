@@ -59,6 +59,25 @@ io.on('connection', (socket) => {
         } // callback
       ); // query
     }); // socket.on('load scores')
+
+    socket.on('draft song', (flag) => {
+      let query = '';
+      if (flag) {
+        query = 'SELECT * FROM `songs` WHERE usada = 0;';
+      } else {
+        query = 'SELECT * FROM `songs` WHERE usada = 0 AND dificuldade != \'Extrema\';';
+      }
+      connection.query(query,
+        function(err, results, fields) {
+          let len = results.length;
+          let rand = Math.floor(Math.random() * len);
+          // console.log(results); results contains rows returned by server
+          //console.log(fields); // fields contains extra meta data about results, if available
+          io.emit('draft song', results[rand]);
+          console.log("drafting song");
+        } // callback
+      ); // query
+    }); // socket.on('load scores')
   });
 
 server.listen(3000, () => {

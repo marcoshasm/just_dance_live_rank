@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <textarea name="" id="text" cols="30" rows="10">
+        </textarea>
+        <p id="output"></p>
+        <button onclick="run()">RUN</button>
+        <script>
+            const text = document.getElementById("text");
+            const p = document.getElementById("output");
+            
+            function run ()
+            {
+                var lines = text.value.split(/\r?\n|\r|\n/g);
+    
+                var out = '';
+    
+                lines.forEach(line => {
+                    let arr = line.split('/');
+                    out += `INSERT INTO songs(nome, artista, dificuldade) VALUES ("${arr[0]}", "${arr[1]}", "${arr[2]}");<br>`
+                });
+
+                p.innerHTML = out;
+            }
+        </script>
+    </body>
+</html>
