@@ -10,6 +10,7 @@ socket.emit('load scores');
 socket.on('load scores', (res) => {
   res.forEach (element => {
     appendItem(groups[element.group_id - 1], element);
+    console.log(element);
   });
 });
 
@@ -22,7 +23,7 @@ function appendItem (root, obj)
   <span class="group-item-score">${obj.group_score.toLocaleString("en-US")}</span>`;
   groups[obj.group_id-1].items.push({
     element: item,
-    score: 0,
+    score: obj.group_score,
     id: obj.id
   });
   reorder(groups[obj.group_id-1].items);
@@ -55,4 +56,5 @@ function reorder (arr)
     item.element.getElementsByClassName("group-item-rank")[0].innerHTML = "#" + (i + 1);
     i++;
   });
+  console.log(arr);
 }

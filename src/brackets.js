@@ -13,3 +13,7 @@ socket.on('load brackets', res => {
     }
     );
 });
+
+socket.on('update bracket', (obj) => {
+    items[obj.id].innerHTML = obj.nome;
+});

@@ -2,10 +2,14 @@
   margin: 0;
   padding: 0;
   font-family: 'Tungsten';
+  color: white;
 }
 
 body {
   background-color: #100b49;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .brackets {
@@ -30,6 +34,7 @@ body {
 }
 
 .item {
+  position: relative;
   height: 60px;
   width: 153px;
   background-color: dodgerblue;
@@ -37,4 +42,90 @@ body {
   font-size: 38px;
   padding: 0 8px;
   box-sizing: border-box;
+}
+
+.center .item:first-child {
+  background-color: #e9009c;
+}
+
+.g8-r .item, .g4-r .item, .g2-r .item {
+  background-color: #e9009c;
+}
+
+.g8 .item:nth-child(2n)::after {
+  position: absolute;
+  right: -15px;
+  top: -60px;
+  width: 20px;
+  height: 90px;
+  border: solid white 1px;
+  border-width: 2px 2px 2px 0;
+  content: "";
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.g8-r .item:nth-child(2n)::after {
+  position: absolute;
+  left: -15px;
+  top: -60px;
+  width: 20px;
+  height: 90px;
+  border: solid white 1px;
+  border-width: 2px 0 2px 2px;
+  content: "";
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.g4 .item:nth-child(2n)::after {
+  position: absolute;
+  right: -15px;
+  top: -150px;
+  width: 20px;
+  height: 180px;
+  border: solid white 1px;
+  border-width: 2px 2px 2px 0;
+  content: "";
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.g2 .item:nth-child(2n)::after {
+  position: absolute;
+  right: -15px;
+  top: -340px;
+  width: 20px;
+  height: 370px;
+  border: solid white 1px;
+  border-width: 2px 2px 2px 0;
+  content: "";
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.g4-r .item:nth-child(2n)::after {
+  position: absolute;
+  left: -15px;
+  top: -150px;
+  width: 20px;
+  height: 180px;
+  border: solid white 1px;
+  border-width: 2px 0 2px 2px;
+  content: "";
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.g2-r .item:nth-child(2n)::after {
+  position: absolute;
+  left: -15px;
+  top: -340px;
+  width: 20px;
+  height: 370px;
+  border: solid white 1px;
+  border-width: 2px 0 2px 2px;
+  content: "";
+  box-sizing: border-box;
+  z-index: -1;
 }

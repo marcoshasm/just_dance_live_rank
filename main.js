@@ -80,6 +80,12 @@ io.on('connection', (socket) => {
 
     socket.on('update bracket', (obj) => {
       console.log(obj);
+      let query = `UPDATE brackets SET nome = '${obj.nome}' WHERE id = ${obj.id + 1}`;
+      console.log(query);
+      connection.query(query,
+        function(err, results, fields) {
+          io.emit('update bracket', obj);
+        });
     });
 
     socket.on('draft song', (flag) => {

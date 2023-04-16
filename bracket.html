@@ -8,14 +8,24 @@
             position: absolute;
             top: 30px;
             left: 45%;
+            width: 180px;
+            height: 40px;
+          }
+
+          #confirm {
+            position: absolute;
+            top: 120px;
+            left: 45%;
+            width: 160px;
+            height: 80px;
           }
         </style>
     </head>
     <body>
       <select name="competidor" id="select" class="competidor-form"></select>
-      <button type="button" onclick="update()">INSERIR</button>
+      <button id="confirm" type="button" onclick="update()">INSERIR</button>
         <div class="brackets">
-            <div class="column">
+            <div class="column g8">
               <div class="item"></div>
               <div class="item"></div>
               <div class="item"></div>
@@ -25,13 +35,13 @@
               <div class="item"></div>
               <div class="item"></div>
             </div>
-            <div class="column">
+            <div class="column g4">
               <div class="item"></div>
               <div class="item"></div>
               <div class="item"></div>
               <div class="item"></div>
             </div>
-            <div class="column">
+            <div class="column g2">
               <div class="item"></div>
               <div class="item"></div>
             </div>
@@ -39,17 +49,17 @@
               <div class="item"></div>
               <div class="item"></div>
             </div>
-            <div class="column">
+            <div class="column g2-r">
               <div class="item"></div>
               <div class="item"></div>
             </div>
-            <div class="column">
+            <div class="column g4-r">
               <div class="item"></div>
               <div class="item"></div>
               <div class="item"></div>
               <div class="item"></div>
             </div>
-            <div class="column">
+            <div class="column g8-r">
               <div class="item"></div>
               <div class="item"></div>
               <div class="item"></div>
@@ -96,8 +106,14 @@
             for (let i = 0; i < 30; i++)
             {
                 items[i].onclick = () => {
-                    cur = i;
+                  changeColor(i);
+                  cur = i;
                 };
+              }
+              
+            function changeColor (i) {
+              items[cur].style.backgroundColor = "dodgerBlue";
+              items[i].style.backgroundColor = "green";
             }
 
             function update ()
