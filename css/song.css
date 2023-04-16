@@ -18,8 +18,8 @@ body {
     display: block;
     width: 480px;
     height: 480px;
+    margin: 18px 0 40px 0;
     background-color: lightgray;
-    margin: 0 0 10px 0;
     animation: sin infinite 1.4s linear;
 }
 
@@ -27,6 +27,7 @@ body {
     display: none;
     width: 480px;
     height: 480px;
+    object-fit: cover;
 }
 
 h1, h2 {
@@ -34,7 +35,7 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 48px;
 }
 
 h2 {

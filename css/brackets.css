@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Tungsten';
 }
 
 body {
@@ -30,5 +31,10 @@ body {
 
 .item {
   height: 60px;
+  width: 153px;
   background-color: dodgerblue;
+  line-height: 60px;
+  font-size: 38px;
+  padding: 0 8px;
+  box-sizing: border-box;
 }

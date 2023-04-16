@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="brackets.css">
+        <title>Bracket</title>
+        <style>
+          #select {
+            position: absolute;
+            top: 30px;
+            left: 45%;
+          }
+        </style>
+    </head>
+    <body>
+      <select name="competidor" id="select" class="competidor-form"></select>
+      <button type="button" onclick="update()">INSERIR</button>
+        <div class="brackets">
+            <div class="column">
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+            <div class="column">
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+            <div class="column">
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+            <div class="column center">
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+            <div class="column">
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+            <div class="column">
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+            <div class="column">
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
+          </div>
+
+          <script src="/socket.io/socket.io.js"></script>
+          <script>
+            var socket = io();
+            const items = document.getElementsByClassName("item");
+            const select = document.getElementById("select");
+
+            socket.emit('load scores');
+
+            socket.on('load scores', (res) => {
+              res.forEach (element => {
+                let option = document.createElement("option");
+                option.value = element.nome.split(" ")[0];
+                option.innerHTML = element.nome;
+                select.appendChild(option);
+              });
+            });
+
+            socket.emit('load brackets');
+
+            socket.on('load brackets', res => {
+                let i = 0;
+                res.forEach(item => {
+                    items[i].innerHTML = item.nome;
+                    i++;
+                }
+                );
+            });
+            
+
+            var cur = 0;
+            let i = 0;
+
+            for (let i = 0; i < 30; i++)
+            {
+                items[i].onclick = () => {
+                    cur = i;
+                };
+            }
+
+            function update ()
+            {
+              socket.emit('update bracket', {id: cur, nome: select.value});
+            }
+          </script>
+    </body>
+</html>

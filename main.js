@@ -32,6 +32,10 @@ app.get('/brackets', (req, res) => {
   res.sendFile(__dirname + '/brackets.html');
 });
 
+app.get('/bracket', (req, res) => {
+  res.sendFile(__dirname + '/bracket.html');
+});
+
 app.get('/song', (req, res) => {
   res.sendFile(__dirname + '/song.html');
 });
@@ -63,6 +67,20 @@ io.on('connection', (socket) => {
         } // callback
       ); // query
     }); // socket.on('load scores')
+
+    socket.on('load brackets', () => {
+      connection.query('SELECT * FROM `brackets`',
+        function(err, results, fields) {
+          //console.log(results); // results contains rows returned by server
+          //console.log(fields); // fields contains extra meta data about results, if available
+          socket.emit('load brackets', results);
+        } // callback
+      ); // query
+    }); // socket.on('load scores')
+
+    socket.on('update bracket', (obj) => {
+      console.log(obj);
+    });
 
     socket.on('draft song', (flag) => {
       let query = '';
