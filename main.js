@@ -36,6 +36,10 @@ app.get('/song', (req, res) => {
   res.sendFile(__dirname + '/song.html');
 });
 
+app.get('/draftsong', (req, res) => {
+  res.sendFile(__dirname + '/draftsong.html');
+});
+
 io.on('connection', (socket) => {
     console.log('a user connected');
 
@@ -73,6 +77,10 @@ io.on('connection', (socket) => {
           let rand = Math.floor(Math.random() * len);
           // console.log(results); results contains rows returned by server
           //console.log(fields); // fields contains extra meta data about results, if available
+          connection.query(`UPDATE songs SET usada = 1 WHERE id = ${results[rand].id}`,
+            function(err, results, fields) {
+
+            });
           io.emit('draft song', results[rand]);
           console.log("drafting song");
         } // callback

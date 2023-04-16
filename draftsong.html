@@ -2,20 +2,19 @@
     <head>
         <link rel="stylesheet" href="song.css">
         <title>Sorteio de Musica</title>
-        <script defer src="song.js"></script>
     </head>
     <body>
-        <div class="main">
-            <img class="cover" src="" id="cover">
-            <h1 id="title">Song Title</h1>
-            <h2 id="artist">Song Artist</h2>
-        </div>
+        <input type="checkbox" name="" id="extreme">
+        <button id="draft" onclick="sortear(extreme.value)">SORTEAR MÚSICA</button>
 
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io();
 
-            function draft (extreme) {
+            const draft = document.getElementById("draft");
+            const extreme = document.getElementById("extreme");
+
+            function sortear (extreme) {
                 socket.emit('draft song', extreme);
             }
         </script>

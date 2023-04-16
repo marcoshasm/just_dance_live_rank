@@ -1,6 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    color: white;
+    font-family: 'Tungsten';
+}
+
+body {
+    background-color: #100b49;
 }
 
 .main {
@@ -8,13 +14,35 @@
     width: 480px;
 }
 
-.cover {
+.cover-wrap {
     display: block;
     width: 480px;
     height: 480px;
     background-color: lightgray;
+    margin: 0 0 10px 0;
+    animation: sin infinite 1.4s linear;
+}
+
+.cover {
+    display: none;
+    width: 480px;
+    height: 480px;
 }
 
 h1, h2 {
     text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+@keyframes sin {
+    0% { background-color: #0e0b2e;}
+    50% { background-color: #1f1a58;}
+    100% { background-color: #0e0b2e;}
 }
