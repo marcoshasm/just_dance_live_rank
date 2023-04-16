@@ -32,6 +32,10 @@ app.get('/brackets', (req, res) => {
   res.sendFile(__dirname + '/brackets.html');
 });
 
+app.get('/song', (req, res) => {
+  res.sendFile(__dirname + '/song.html');
+});
+
 io.on('connection', (socket) => {
     console.log('a user connected');
 
